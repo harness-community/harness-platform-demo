@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- labels:
-   app: demo-app
- name: demo-app
+  labels:
+    app: demo-app
+  name: demo-app
 spec:
  replicas: 2
  selector:
@@ -20,7 +20,7 @@ spec:
        ports:
        - containerPort: 80
        - containerPort: 9113
-         name: metrics
+           name: metrics
 
 ---
 apiVersion: v1

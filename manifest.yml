@@ -33,9 +33,9 @@ spec:
   - name: http
     port: 80
     targetPort: 80
-  selector:
-    app: demo-app
   - name: metrics
     port: 9113
     targetPort: 9113
+  selector:
+    app: demo-app
   

@@ -19,8 +19,8 @@ spec:
        name: demo-app
        ports:
        - containerPort: 80
-       - containerPort: 9113
-           name: metrics
+       - name: metrics
+         containerPort: 9113
 
 ---
 apiVersion: v1

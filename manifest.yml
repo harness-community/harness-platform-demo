@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ labels:
+   app: demo-app
+ name: demo-app
+spec:
+ replicas: 2
+ selector:
+   matchLabels:
+     app: demo-app
+ template:
+   metadata:
+     labels:
+       app: demo-app
+   spec:
+     containers:
+     - image: harnesscommunity/demo-app:latest
+       name: demo-app
+       ports:
+       - containerPort: 80
+       - containerPort: 9113
+         name: metrics
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-app
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+  selector:
+    app: demo-app
+  - name: metrics
+    port: 9113
+    targetPort: 9113
+  
